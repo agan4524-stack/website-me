@@ -40,27 +40,33 @@
         .gradient-blue {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
+        @media (max-width: 768px) {
+    h1 { font-size: 2.5rem !important; } /* Agar judul tidak memenuhi layar HP */
+    .nav-links { display: none; } /* Sembunyikan menu teks di HP */
+}
     </style>
 </head>
 
 <body class="text-slate-800">
-
-    <!-- Navigasi -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IMAM.</div>
-            <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
-                <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
-                <a href="#journey" class="hover:text-blue-600 transition">Perjalanan</a>
-                <a href="#org" class="hover:text-blue-600 transition">Organisasi</a>
-                <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
-            </div>
-            <a href="#contact"
-                class="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition duration-300">
-                Hubungi Saya
-            </a>
+<!-- Navigasi -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IMAM.</div>
+        
+        <!-- Menu ini otomatis hilang di HP karena class 'hidden md:flex' -->
+        <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
+            <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
+            <a href="#journey" class="hover:text-blue-600 transition">Perjalanan</a>
+            <a href="#org" class="hover:text-blue-600 transition">Organisasi</a>
+            <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
         </div>
-    </nav>
+
+        <a href="#contact"
+            class="bg-blue-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition duration-300">
+            Hubungi Saya
+        </a>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="pt-40 pb-24 px-6">
@@ -128,16 +134,16 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Galeri Kenangan</h2>
-                <p class="text-slate-500">Momen singkat yang terekam dalam perjalanan.</p>
-            </div>
-            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+<section id="gallery" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Galeri Kenangan</h2>
+            <p class="text-slate-500">Momen singkat yang terekam dalam perjalanan.</p>
         </div>
-    </section>
-
+        <!-- Ubah grid-cols-2 agar di HP tetap muncul 2 baris kesamping -->
+        <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+    </div>
+</section>
     <!-- Quote of the Day Section -->
     <section class="py-12 px-6">
         <div class="max-w-4xl mx-auto" data-aos="fade-up">
