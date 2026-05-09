@@ -44,16 +44,31 @@
     h1 { font-size: 2.5rem !important; } /* Agar judul tidak memenuhi layar HP */
     .nav-links { display: none; } /* Sembunyikan menu teks di HP */
 }
+        html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Ini kunci agar tidak bisa digeser ke kiri/kanan */
+}
+
+/* Style untuk menu mobile */
+#mobile-menu {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+}
     </style>
 </head>
 
 <body class="text-slate-800">
-<!-- Navigasi -->
 <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IMAM.</div>
         
-        <!-- Menu ini otomatis hilang di HP karena class 'hidden md:flex' -->
+        <!-- Menu Desktop -->
         <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
             <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
             <a href="#journey" class="hover:text-blue-600 transition">Perjalanan</a>
@@ -61,10 +76,27 @@
             <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
         </div>
 
-        <a href="#contact"
-            class="bg-blue-600 text-white px-5 py-2 rounded-full text-xs md:text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition duration-300">
-            Hubungi Saya
-        </a>
+        <div class="flex items-center gap-4">
+            <a href="#contact" class="bg-blue-600 text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-lg shadow-blue-200 hover:scale-105 transition hidden sm:block">
+                Hubungi Saya
+            </a>
+            
+            <!-- Tombol Hamburger (Hanya muncul di HP) -->
+            <button id="menu-btn" class="p-2 text-slate-600 md:hidden focus:outline-none">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white border-b border-slate-100 p-6 md:hidden shadow-xl">
+        <div class="flex flex-col space-y-4 text-center font-bold text-slate-600">
+            <a href="#home" onclick="toggleMenu()" class="hover:text-blue-600 py-2">Beranda</a>
+            <a href="#journey" onclick="toggleMenu()" class="hover:text-blue-600 py-2">Perjalanan</a>
+            <a href="#org" onclick="toggleMenu()" class="hover:text-blue-600 py-2">Organisasi</a>
+            <a href="#gallery" onclick="toggleMenu()" class="hover:text-blue-600 py-2">Galeri</a>
+            <a href="#contact" onclick="toggleMenu()" class="bg-blue-50 text-blue-600 py-3 rounded-xl">Hubungi Saya</a>
+        </div>
     </div>
 </nav>
 
@@ -362,6 +394,25 @@
             const text = `Halo IMAM, saya ${name}. %0A%0A${message}`;
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
+        const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+
+function toggleMenu() {
+    mobileMenu.classList.toggle('active');
+    // Ganti ikon menu jadi silang (X) kalau aktif
+    const isOpened = mobileMenu.classList.contains('active');
+    menuIcon.setAttribute('data-lucide', isOpened ? 'x' : 'menu');
+    lucide.createIcons(); // Render ulang ikon Lucide
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+
+// Tambahan: Pastikan elemen AOS tidak bikin bocor layar
+document.querySelectorAll('[data-aos]').forEach(el => {
+    el.style.maxWidth = '100vw';
+    el.style.overflowX = 'hidden';
+});
     </script>
 </body>
 
