@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Journey | IMAM</title>
+    <!-- Baris untuk ganti icon tab (Favicon) -->
+    <link rel="icon" type="image/png" href="img/logo.jpeg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS Library untuk animasi scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fcfdfe;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .card-shadow:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6 0%, #e2e8f0 100%);
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+    </style>
+</head>
+
+<body class="text-slate-800">
+
+    <!-- Navigasi -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IMAM.</div>
+            <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
+                <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
+                <a href="#journey" class="hover:text-blue-600 transition">Perjalanan</a>
+                <a href="#org" class="hover:text-blue-600 transition">Organisasi</a>
+                <a href="#gallery" class="hover:text-blue-600 transition">Galeri</a>
+            </div>
+            <a href="#contact"
+                class="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition duration-300">
+                Hubungi Saya
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-40 pb-24 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="flex-1 text-center md:text-left" data-aos="fade-right">
+                <span
+                    class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-600 bg-blue-50 rounded-full uppercase">
+                    E-Portfolio & Life Archive
+                </span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight mb-6">
+                    Menyusun Jejak, <br><span class="text-blue-600 font-black">Membangun Masa Depan.</span>
+                </h1>
+                <p class="text-lg text-slate-500 mb-10 max-w-lg leading-relaxed">
+                    Halo! Saya Aa. Laman ini adalah ruang digital di mana saya menyimpan memori perjalanan hidup,
+                    dedikasi di organisasi, dan semangat dalam dunia teknologi.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#journey"
+                        class="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-2xl">
+                        Mulai Menjelajah
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 relative" data-aos="zoom-in">
+                <div class="w-72 h-72 md:w-96 md:h-96 bg-blue-50 rounded-[4rem] rotate-12 absolute top-0 left-0 -z-10">
+                </div>
+                <div
+                    class="w-72 h-72 md:w-96 md:h-96 bg-white rounded-[4rem] border-8 border-white shadow-2xl overflow-hidden flex items-center justify-center relative">
+                    <!-- Petunjuk: Ganti <i> di bawah dengan <img src="folder_kamu/foto_kamu.jpg"> -->
+                    <div class="absolute inset-0 bg-slate-100 flex items-center justify-center">
+                        <img src="img/profile.jpeg" alt="Profile Image" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Perjalanan Hidup</h2>
+                <p class="text-slate-500">Kilas balik momen-momen penting yang membentuk diri saya hari ini.</p>
+            </div>
+            <div class="relative pl-10">
+                <div class="absolute left-0 top-0 h-full timeline-line"></div>
+                <div id="journey-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organization Section -->
+    <section id="org" class="py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Pengalaman Organisasi</h2>
+                    <p class="text-slate-500">Berkontribusi untuk lingkungan sekitar dan belajar menjadi pemimpin yang
+                        berdampak.</p>
+                </div>
+                <i data-lucide="users" class="w-12 h-12 text-blue-100 hidden md:block"></i>
+            </div>
+            <div id="org-container" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Galeri Kenangan</h2>
+                <p class="text-slate-500">Momen singkat yang terekam dalam perjalanan.</p>
+            </div>
+            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+        </div>
+    </section>
+
+    <!-- Quote of the Day Section -->
+    <section class="py-12 px-6">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <div
+                class="bg-blue-50/50 border border-blue-100 p-8 md:p-12 rounded-[2.5rem] text-center relative overflow-hidden">
+                <!-- Dekorasi Ikon Petik -->
+                <div class="absolute -top-4 -left-2 opacity-10">
+                    <i data-lucide="quote" class="w-24 h-24 text-blue-600"></i>
+                </div>
+
+                <h4 class="text-xs font-black tracking-[0.2em] text-blue-400 uppercase mb-6">Quote of the Day</h4>
+                <p id="quote-text" class="text-xl md:text-2xl font-medium text-slate-700 italic leading-relaxed mb-6">
+                    "Memuat inspirasi..."
+                </p>
+                <div class="w-10 h-1 bg-blue-200 mx-auto rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-white pt-24 pb-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
+                <div>
+                    <h2 class="text-4xl font-black mb-6">Mari Berdiskusi.</h2>
+                    <p class="text-slate-400 text-lg mb-8">Tertarik untuk berkolaborasi atau sekadar bertanya tentang
+                        pengalaman saya? Silakan hubungi saya melalui saluran berikut.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
+                                <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <span class="font-medium">imamkoswara123@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center">
+                                <i class="fa-brands fa-instagram text-pink-400 text-xl"></i>
+                            </div>
+                            <span class="font-medium">@akd_run.code</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-2xl">
+                    <form class="space-y-4" onsubmit="sendToWhatsApp(event)">
+                        <div>
+                            <label class="block text-slate-700 text-sm font-bold mb-2">Nama Lengkap</label>
+                            <input type="text" id="contact-name" placeholder="Masukkan namamu"
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-slate-900 transition-all"
+                                required>
+                        </div>
+                        <div>
+                            <label class="block text-slate-700 text-sm font-bold mb-2">Pesan</label>
+                            <textarea id="contact-message" rows="4" placeholder="Apa yang ingin kamu sampaikan?"
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-slate-900 transition-all"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full gradient-blue text-white font-bold py-4 rounded-xl shadow-xl shadow-blue-900/20 hover:opacity-90 transition-all">Kirim
+                            Pesan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-xl font-black italic">IMAM.</div>
+                <p class="text-slate-500 text-sm">© 2026 IMAM Personal Journey. Dibuat dengan semangat dan Tailwind CSS.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script untuk Ikon -->
+    <!-- Ganti link script lama dengan ini -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.400.0/umd/lucide.min.js"></script>
+
+    <!-- Script untuk Animasi (yang sudah Aa punya) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // 1. DATA DATABASE (Edit di sini saja, Aa!)
+        const journeyData = [
+            { year: "2025 - 2026", title: "Puncak Pembuktian & Dedikasi", desc: "Menyelesaikan studi SMK dengan dedikasi tinggi, menghandle berbagai proyek UKK rekan sejawat, dan aktif sebagai Dewan Kerja Ranting (DKR) divisi Kajian Kepramukaan." },
+            { year: "2024 - 2025", title: "Kepemimpinan & Nasionalisme", desc: "Dipercaya sebagai Koordinator Kenegaraan OSIS SMK dan berkesempatan menjadi anggota Paskibraka tingkat Kecamatan sambil terus mengasah kedisiplinan." },
+            { year: "2023 - 2024", title: "Awal Langkah di Dunia RPL", desc: "Lulus dari MTs dan memilih jurusan Rekayasa Perangkat Lunak di SMK Mihadunal Ula. Mulai aktif berorganisasi sebagai Sekbid Keagamaan OSIS." },
+            { year: "2021 - 2023", title: "Titik Balik & Kepemimpinan", desc: "Menjabat sebagai Ketua OSIS MTs periode 2022-2023 dan menemukan jati diri melalui kehidupan pesantren yang berawal dari sebuah ketidaksengajaan yang berharga." }
+        ];
+
+        // --- TAMBAHKAN BAGIAN INI ---
+        const orgData = [
+            { icon: "users", color: "blue", title: "OSIS MTs Mihadunal Ula", role: "Ketua OSIS", desc: "Memimpin organisasi kesiswaan periode 2022-2023 dan menjadi penggerak utama berbagai kegiatan madrasah.", period: "2022 - 2023" },
+            { icon: "shield", color: "red", title: "Paskibraka Kecamatan", role: "Anggota Paskibraka", desc: "Berkontribusi dalam upacara kenegaraan tingkat kecamatan dan mengasah disiplin serta jiwa nasionalisme.", period: "2024" },
+            { icon: "flag", color: "emerald", title: "Dewan Kerja Ranting (DKR)", role: "Divisi Kajian Kepramukaan", desc: "Mengelola riset dan pengembangan materi kepramukaan serta aktif dalam koordinasi kegiatan pramuka tingkat ranting.", period: "2025 - Sekarang" },
+            { icon: "heart", color: "indigo", title: "OSIS SMK Mihadunal Ula", role: "Koordinator Kenegaraan", desc: "Bertanggung jawab atas pelaksanaan program-program kebangsaan dan kedisiplinan siswa di lingkungan SMK.", period: "2024 - 2025" }
+        ];
+        // ----------------------------
+
+        const galleryData = [
+            { label: "dkr", img: "img/dkr-1.jpeg" },
+            { label: "Pengurus osis mts", img: "img/osis.jpeg" },
+            { label: "paskibraka", img: "img/foto-paskib-1.jpeg" },
+            { label: "paskibraka", img: "img/paskib-2.jpeg" },
+            { label: "paskibraka", img: "img/paskib-3.jpeg" },
+            { label: "Rapat Organisasi", img: "img/rapat.jpeg" },
+            { label: "Rapat Organisasi", img: "img/rapat-2.jpeg" },
+            { label: "panitia kkls", img: "img/panitia.jpeg" },
+            { label: "Tapak Tilas", img: "img/tapak-tilas.jpeg" },
+            { label: "Upacara", img: "img/osis-1.jpeg" },
+            { label: "Upacara", img: "img/osis-2.jpeg" },
+            { label: "Tapak Tilas", img: "img/tapak-2.jpeg" }
+        ];
+
+        const quotes = [
+            "Code is like humor. When you have to explain it, it’s bad.",
+            "Programmer yang baik bukan yang tahu segalanya, tapi yang tahu cara mencari solusi.",
+            "Hidup itu seperti coding; jika ada yang error, perbaiki, jangan menyerah.",
+            "Sederhana dalam ucapan, hebat dalam tindakan, rapi dalam penulisan kode.",
+            "Santri di hati, Programmer di jemari. Berdoa sebelum koding, bersyukur setelah running.",
+            "Bukan tentang seberapa cepat kodenya selesai, tapi seberapa bermanfaat solusinya bagi sesama.",
+            "Error adalah cara komputer mengajari kita untuk lebih sabar dan teliti.",
+            "Koding itu seperti menghafal bait Alfiyah; butuh ketekunan, pengulangan, dan pemahaman yang mendalam.",
+            "Jadilah seperti fungsi yang efisien: sedikit bicara (input), banyak bekerja (proses), dan memberikan manfaat (output).",
+            "Dibalik aplikasi yang berjalan lancar, ada malam-malam panjang penuh kopi dan doa.",
+            "kadang hal kecil yang kita anggap sepele, bisa jadi solusi besar bagi orang lain maupun kita sendiri."
+        ];
+
+        // 2. FUNGSI RENDER OTOMATIS
+        function initContent() {
+            // Render Journey
+            const journeyContainer = document.getElementById('journey-container');
+            if (journeyContainer) {
+                journeyContainer.innerHTML = journeyData.map((item, index) => `
+                <div class="mb-16 relative" data-aos="fade-left" data-aos-delay="${index * 100}">
+                    <div class="absolute -left-[49px] top-0 w-6 h-6 ${index === 0 ? 'bg-blue-600' : 'bg-slate-200'} rounded-full border-4 border-white shadow-md"></div>
+                    <span class="text-sm font-bold ${index === 0 ? 'text-blue-600 bg-blue-50' : 'text-slate-400'} px-3 py-1 rounded-md">${item.year}</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-3">${item.title}</h3>
+                    <p class="text-slate-500 mt-3 leading-relaxed">${item.desc}</p>
+                </div>
+            `).join('');
+            }
+
+            // --- TAMBAHKAN RENDER ORGANISASI ---
+            const orgContainer = document.getElementById('org-container');
+            if (orgContainer) {
+                orgContainer.innerHTML = orgData.map((item, index) => `
+                <div class="bg-white p-10 rounded-[2.5rem] card-shadow" data-aos="fade-up" data-aos-delay="${index * 100}">
+                    <div class="w-14 h-14 bg-${item.color}-50 text-${item.color}-600 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="${item.icon}"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">${item.title}</h3>
+                    <p class="text-sm font-bold text-${item.color}-600 mb-6 uppercase tracking-wider">${item.role}</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">${item.desc}</p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase">
+                        <i data-lucide="calendar" class="w-3 h-3"></i> ${item.period}
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Render Gallery
+            const galleryContainer = document.getElementById('gallery-container');
+            if (galleryContainer) {
+                galleryContainer.innerHTML = galleryData.map((item, index) => `
+                <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="${index * 100}">
+                    <img src="${item.img}" alt="${item.label}" class="w-full h-full object-cover opacity-0 transition-opacity duration-500" onload="this.style.opacity='1'">
+                    <div class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                        <span class="text-white font-bold">${item.label}</span>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center -z-10 text-slate-300">
+                        <i data-lucide="image" class="w-12 h-12"></i>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Render Quote
+            const quoteText = document.getElementById('quote-text');
+            if (quoteText) {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                quoteText.innerText = `"${randomQuote}"`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // 1. Jalankan fungsi render konten (Journey, Org, Gallery)
+            if (typeof initContent === "function") {
+                initContent();
+            }
+
+            // 2. Jalankan Lucide untuk memunculkan semua ikon
+            lucide.createIcons();
+
+            // 3. Jalankan AOS untuk animasi
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+        // Tambahkan ini di bagian paling bawah initContent() atau DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', function () {
+            initContent();
+
+            // Paksa render ulang ikon
+            lucide.createIcons();
+        });
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+    <script>
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const message = document.getElementById('contact-message').value;
+            const phone = "6283138547454"; // Ganti dengan nomor WA IMAM (awali dengan 62)
+
+            const text = `Halo IMAM, saya ${name}. %0A%0A${message}`;
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+
+</html>
