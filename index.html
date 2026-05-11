@@ -3,32 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ME project | Software Engineer </title>
+   <title>IK Project | Software Engineer & Leader</title>
     <!-- Baris untuk ganti icon tab (Favicon) -->
     <link rel="icon" type="image/png" href="img/logo.jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <meta name="description" content="Portfolio Personal Imam - Software Engineering Student & Leader.">
-    <meta name="author" content="Imam">
-    <meta property="og:title" content="ME roject | softwere enginer">
+    <meta name="description" content="Portfolio Personal IK Project - Software Engineering Student & Leader.">
+    <meta name="author" content="IK Project">
+    <meta property="og:title" content="IK Project | Software Engineer">
     <meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang calon Software Engineer.">
-    <meta property="og:image" content="img/profile.jpeg"> <meta property="og:type" content="website">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ra (Koswara)",
-      "url": "https://ra-project.vercel.app",
-      "jobTitle": "Software Engineering Student",
-      "alumniOf": "SMK Mihadunal Ula",
-      "knowsAbout": ["PHP", "CodeIgniter 3", "MySQL", "Web Development", "UI/UX Design"],
-      "sameAs": [
-        "https://instagram.com/akd_run.code"
-      ]
-    }
-    </script>
+    <meta property="og:image" content="img/logo.jpeg"> <meta property="og:type" content="website">
         <!-- AOS Library untuk animasi scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -189,7 +174,7 @@ body.dark {
 </style>
 <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IMAM.</div>
+        <div class="text-2xl font-extrabold tracking-tighter text-blue-600">IK.</div>
         
         <!-- Menu Desktop -->
         <div class="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
@@ -252,7 +237,7 @@ body.dark {
                     class="w-72 h-72 md:w-96 md:h-96 bg-white rounded-[4rem] border-8 border-white shadow-2xl overflow-hidden flex items-center justify-center relative">
                     <!-- Petunjuk: Ganti <i> di bawah dengan <img src="folder_kamu/foto_kamu.jpg"> -->
                     <div class="absolute inset-0 bg-slate-100 flex items-center justify-center">
-                        <img src="img/profile.jpeg" alt="Profile Image" class="w-full h-full object-cover">
+                        <img src="img/profile.jpeg" alt="Profile Image" class="w-full h-full object-cover" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -303,7 +288,7 @@ body.dark {
         <div class="bg-white dark:bg-slate-800 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row border border-slate-100 dark:border-slate-700">
             <div class="flex-1 bg-blue-600 p-12 flex items-center justify-center relative overflow-hidden">
                 <div class="absolute inset-0 opacity-20 pattern-grid-lg"></div>
-                <img src="img/project-ukk.png" alt="UKK Preview" class="rounded-xl shadow-2xl relative z-10 transform hover:scale-105 transition duration-500">
+                <img src="img/project-ukk.png" alt="UKK Preview" class="rounded-xl shadow-2xl relative z-10 transform hover:scale-105 transition duration-500" loading="lazy">
             </div>
             
             <div class="flex-1 p-12">
@@ -461,8 +446,8 @@ body.dark {
                 </div>
             </div>
             <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xl font-black italic">IMAM.</div>
-                <p class="text-slate-500 text-sm">© 2026 IMAM Personal Journey. Dibuat dengan semangat dan Tailwind CSS.
+                <div class="text-xl font-black italic">IK.</div>
+                <p class="text-slate-500 text-sm">© 2026 IK Personal Journey. Dibuat dengan semangat dan Tailwind CSS.
                 </p>
             </div>
         </div>
@@ -470,7 +455,7 @@ body.dark {
 
     <!-- Script untuk Ikon -->
     <!-- Ganti link script lama dengan ini -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.400.0/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
     <!-- Script untuk Animasi (yang sudah Aa punya) -->
@@ -552,17 +537,16 @@ body.dark {
                 </div>
             `).join('');
             }
-            // Render Gallery
+                        // Render Gallery
             const galleryContainer = document.getElementById('gallery-container');
             if (galleryContainer) {
                 galleryContainer.innerHTML = galleryData.map((item, index) => `
-                <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="${index * 100}">
+                <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative cursor-pointer" 
+                     data-aos="zoom-in" data-aos-delay="${index * 100}" 
+                     onclick="openLightbox('${item.img}')">
                     <img src="${item.img}" loading="lazy" alt="${item.label}" class="w-full h-full object-cover opacity-0 transition-opacity duration-500" onload="this.style.opacity='1'">
                     <div class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                    <span class="text-white font-bold">${item.label}</span>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center -z-10 text-slate-300">
-                        <i data-lucide="image" class="w-12 h-12"></i>
+                        <span class="text-white font-bold uppercase text-xs tracking-widest">${item.label}</span>
                     </div>
                 </div>
             `).join('');
@@ -574,32 +558,31 @@ body.dark {
                 quoteText.innerText = `"${randomQuote}"`;
             }
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            // 1. Jalankan fungsi render konten (Journey, Org, Gallery)
-            if (typeof initContent === "function") {
-                initContent();
-            }
-            // 2. Jalankan Lucide untuk memunculkan semua ikon
-            lucide.createIcons();
-            // 3. Jalankan AOS untuk animasi
-          AOS.init({
-    duration: 1200,      // Lebih lambat agar lebih elegan
-    easing: 'ease-out-cubic', // Transisi lebih halus
-    once: true,          // Cukup sekali jalan
-    offset: 100          // Muncul sedikit setelah scroll lewat
+       document.addEventListener('DOMContentLoaded', () => {
+    initContent();
+    lucide.createIcons();
+    
+    // Inisialisasi AOS
+    AOS.init({
+        duration: 1200,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Jalankan Tilt
+    VanillaTilt.init(document.querySelectorAll(".card-shadow"), {
+        max: 10, speed: 400, glare: true, "max-glare": 0.1,
+    });
+
+    // Cek Tema
+    if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        const icon = document.getElementById('dark-icon');
+        icon.setAttribute('data-lucide', 'sun');
+        lucide.createIcons();
+    }
 });
-        });
-        // Tambahkan ini di bagian paling bawah initContent() atau DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', function () {
-            initContent();
-            // Paksa render ulang ikon
-            lucide.createIcons();
-        });
-        document.addEventListener('contextmenu', function (e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-            }
-        }, false);
     </script>
     <script>
         function sendToWhatsApp(e) {
@@ -608,7 +591,7 @@ body.dark {
             const message = document.getElementById('contact-message').value;
             const phone = "6283138547454"; // Ganti dengan nomor WA IMAM (awali dengan 62)
 
-            const text = `Halo IMAM, saya ${name}. %0A%0A${message}`;
+            const text = `Halo IK, saya ${name}. %0A%0A${message}`;
             window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
         }
         const menuBtn = document.getElementById('menu-btn');
@@ -668,7 +651,7 @@ window.addEventListener("mousemove", (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     // Jalankan Tilt pada kartu organisasi
     VanillaTilt.init(document.querySelectorAll(".card-shadow"), {
-        max: 15, speed: 400, glare: true, "max-glare": 0.2,
+        max: 15, speed: 400, glare: true, "max-glare": 0.1,
     });
 
     if(localStorage.getItem('theme') === 'dark') toggleDarkMode();
@@ -709,7 +692,20 @@ setTimeout(() => {
     document.getElementById('music-widget').classList.remove('translate-x-[120%]');
 }, 3000);
     </script>
-    
-</body>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "IK (Koswara)",
+      "url": "https://ra-project.vercel.app",
+      "jobTitle": "Software Engineering Student",
+      "alumniOf": "SMK Mihadunal Ula",
+      "knowsAbout": ["PHP", "CodeIgniter 3", "MySQL", "Web Development", "UI/UX Design"],
+      "sameAs": [
+        "https://instagram.com/akd_run.code"
+      ]
+    }
+    </script>
+</body>
 </html>
