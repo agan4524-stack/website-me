@@ -17,7 +17,7 @@
     <meta name="description" content="Portfolio Personal Imam - Software Engineering Student & Leader.">
     <meta name="author" content="Imam">
     
-    <meta property="og:title" content="RA Project | Portofolio Imam">
+    <meta property="og:title" content="ME roject | softwere enginer">
     <meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang calon Software Engineer.">
     <meta property="og:image" content="img/profile.jpeg"> <meta property="og:type" content="website">
     <script type="application/ld+json">
@@ -528,93 +528,89 @@ body.dark {
             "kadang hal kecil yang kita anggap sepele, bisa jadi solusi besar bagi orang lain maupun kita sendiri."
         ];
 
-        // 2. FUNGSI RENDER OTOMATIS
-        function initContent() {
-            // Render Journey
-            const journeyContainer = document.getElementById('journey-container');
-            if (journeyContainer) {
-                journeyContainer.innerHTML = journeyData.map((item, index) => `
-                <div class="mb-16 relative" data-aos="fade-left" data-aos-delay="${index * 100}">
-                    <div class="absolute -left-[49px] top-0 w-6 h-6 ${index === 0 ? 'bg-blue-600' : 'bg-slate-200'} rounded-full border-4 border-white shadow-md"></div>
-                    <span class="text-sm font-bold ${index === 0 ? 'text-blue-600 bg-blue-50' : 'text-slate-400'} px-3 py-1 rounded-md">${item.year}</span>
-                    <h3 class="text-2xl font-bold text-slate-900 mt-3">${item.title}</h3>
-                    <p class="text-slate-500 mt-3 leading-relaxed">${item.desc}</p>
-                </div>
-            `).join('');
-            }
+      // 2. FUNGSI RENDER OTOMATIS (Disederhanakan)
+function initContent() {
+    // Render Journey
+    const journeyContainer = document.getElementById('journey-container');
+    if (journeyContainer) {
+        journeyContainer.innerHTML = journeyData.map((item, index) => `
+            <div class="mb-16 relative" data-aos="fade-left" data-aos-delay="${index * 100}">
+                <div class="absolute -left-[49px] top-0 w-6 h-6 ${index === 0 ? 'bg-blue-600' : 'bg-slate-200'} rounded-full border-4 border-white shadow-md"></div>
+                <span class="text-sm font-bold ${index === 0 ? 'text-blue-600 bg-blue-50' : 'text-slate-400'} px-3 py-1 rounded-md">${item.year}</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-3">${item.title}</h3>
+                <p class="text-slate-500 mt-3 leading-relaxed">${item.desc}</p>
+            </div>
+        `).join('');
+    }
 
-            // --- TAMBAHKAN RENDER ORGANISASI ---
-            const orgContainer = document.getElementById('org-container');
-            if (orgContainer) {
-                orgContainer.innerHTML = orgData.map((item, index) => `
-                <div class="bg-white p-10 rounded-[2.5rem] card-shadow" data-aos="fade-up" data-aos-delay="${index * 100}">
-                    <div class="w-14 h-14 bg-${item.color}-50 text-${item.color}-600 rounded-2xl flex items-center justify-center mb-8">
-                        <i data-lucide="${item.icon}"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">${item.title}</h3>
-                    <p class="text-sm font-bold text-${item.color}-600 mb-6 uppercase tracking-wider">${item.role}</p>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">${item.desc}</p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase">
-                        <i data-lucide="calendar" class="w-3 h-3"></i> ${item.period}
-                    </div>
+    // Render Organisasi
+    const orgContainer = document.getElementById('org-container');
+    if (orgContainer) {
+        orgContainer.innerHTML = orgData.map((item, index) => `
+            <div class="bg-white p-10 rounded-[2.5rem] card-shadow" data-aos="fade-up" data-aos-delay="${index * 100}">
+                <div class="w-14 h-14 bg-${item.color}-50 text-${item.color}-600 rounded-2xl flex items-center justify-center mb-8">
+                    <i data-lucide="${item.icon}"></i>
                 </div>
-            `).join('');
-            }
-
-            // Render Gallery
-            const galleryContainer = document.getElementById('gallery-container');
-            if (galleryContainer) {
-                galleryContainer.innerHTML = galleryData.map((item, index) => `
-                <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="${index * 100}">
-                    <img src="${item.img}" loading="lazy" alt="${item.label}" ... >
-                    <img src="${item.img}" alt="${item.label}" class="w-full h-full object-cover opacity-0 transition-opacity duration-500" onload="this.style.opacity='1'">
-                    <div class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                        <span class="text-white font-bold">${item.label}</span>
-                    </div>
-                    <div class="absolute inset-0 flex items-center justify-center -z-10 text-slate-300">
-                        <i data-lucide="image" class="w-12 h-12"></i>
-                    </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">${item.title}</h3>
+                <p class="text-sm font-bold text-${item.color}-600 mb-6 uppercase tracking-wider">${item.role}</p>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">${item.desc}</p>
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase">
+                    <i data-lucide="calendar" class="w-3 h-3"></i> ${item.period}
                 </div>
-            `).join('');
-            }
+            </div>
+        `).join('');
+        
+        // JALANKAN TILT DI SINI (Setelah elemen dibuat)
+        VanillaTilt.init(document.querySelectorAll(".card-shadow"), {
+            max: 15, speed: 400, glare: true, "max-glare": 0.2,
+        });
+    }
 
-            // Render Quote
-            const quoteText = document.getElementById('quote-text');
-            if (quoteText) {
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                quoteText.innerText = `"${randomQuote}"`;
-            }
+    // Render Gallery (Sudah diperbaiki duplikasinya)
+    const galleryContainer = document.getElementById('gallery-container');
+    if (galleryContainer) {
+        galleryContainer.innerHTML = galleryData.map((item, index) => `
+            <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative cursor-pointer" 
+                 data-aos="zoom-in" data-aos-delay="${index * 100}" 
+                 onclick="openLightbox('${item.img}')">
+                <img src="${item.img}" alt="${item.label}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                    <span class="text-white font-bold">${item.label}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Render Quote
+    const quoteText = document.getElementById('quote-text');
+    if (quoteText) {
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        quoteText.innerText = `"${randomQuote}"`;
+    }
+}
+
+// 3. EVENT LISTENERS UTAMA (Satu tempat saja)
+document.addEventListener('DOMContentLoaded', function () {
+    initContent();
+    lucide.createIcons();
+    
+    AOS.init({
+        duration: 1200,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // Cek tema lama
+    if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        const icon = document.getElementById('dark-icon');
+        if(icon) {
+            icon.setAttribute('data-lucide', 'sun');
+            lucide.createIcons();
         }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // 1. Jalankan fungsi render konten (Journey, Org, Gallery)
-            if (typeof initContent === "function") {
-                initContent();
-            }
-
-            // 2. Jalankan Lucide untuk memunculkan semua ikon
-            lucide.createIcons();
-
-            // 3. Jalankan AOS untuk animasi
-          AOS.init({
-    duration: 1200,      // Lebih lambat agar lebih elegan
-    easing: 'ease-out-cubic', // Transisi lebih halus
-    once: true,          // Cukup sekali jalan
-    offset: 100          // Muncul sedikit setelah scroll lewat
+    }
 });
-        });
-        // Tambahkan ini di bagian paling bawah initContent() atau DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', function () {
-            initContent();
-
-            // Paksa render ulang ikon
-            lucide.createIcons();
-        });
-        document.addEventListener('contextmenu', function (e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-            }
-        }, false);
     </script>
     <script>
         function sendToWhatsApp(e) {
