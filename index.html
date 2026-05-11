@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Journey | IMAM</title>
+    <title>ME project |Software Engineer </title>
     <!-- Baris untuk ganti icon tab (Favicon) -->
     <link rel="icon" type="image/png" href="img/logo.jpeg">
     
@@ -15,12 +15,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <meta name="description" content="Portfolio Personal Imam - Software Engineering Student & Leader.">
-<meta name="author" content="Imam">
-
-<meta property="og:title" content="RA Project | Portofolio Imam">
-<meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang calon Software Engineer.">
-<meta property="og:image" content="img/profile.jpeg"> <meta property="og:type" content="website">
-    <!-- AOS Library untuk animasi scroll -->
+    <meta name="author" content="Imam">
+    
+    <meta property="og:title" content="RA Project | Portofolio Imam">
+    <meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang calon Software Engineer.">
+    <meta property="og:image" content="img/profile.jpeg"> <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ra (Koswara)",
+      "url": "https://ra-project.vercel.app",
+      "jobTitle": "Software Engineering Student",
+      "alumniOf": "SMK Mihadunal Ula",
+      "knowsAbout": ["PHP", "CodeIgniter 3", "MySQL", "Web Development", "UI/UX Design"],
+      "sameAs": [
+        "https://instagram.com/akd_run.code"
+      ]
+    }
+    </script>
+        <!-- AOS Library untuk animasi scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body {
@@ -29,10 +43,37 @@
             background-color: #fcfdfe;
         }
 
-        .card-shadow {
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-        }
+       .card-shadow {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dark .card-shadow {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-shadow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px; /* Tebal border gradient */
+    background: linear-gradient(135deg, #3b82f6, transparent, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.card-shadow:hover::before {
+    opacity: 1;
+}
 
         .card-shadow:hover {
             transform: translateY(-8px);
@@ -525,6 +566,7 @@ body.dark {
             if (galleryContainer) {
                 galleryContainer.innerHTML = galleryData.map((item, index) => `
                 <div class="h-64 bg-slate-100 rounded-3xl overflow-hidden group relative" data-aos="zoom-in" data-aos-delay="${index * 100}">
+                    <img src="${item.img}" loading="lazy" alt="${item.label}" ... >
                     <img src="${item.img}" alt="${item.label}" class="w-full h-full object-cover opacity-0 transition-opacity duration-500" onload="this.style.opacity='1'">
                     <div class="absolute inset-0 bg-blue-600/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
                         <span class="text-white font-bold">${item.label}</span>
@@ -605,14 +647,24 @@ document.querySelectorAll('[data-aos]').forEach(el => {
 });
         // Fungsi Dark Mode
 function toggleDarkMode() {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
+    const body = document.body;
     const icon = document.getElementById('dark-icon');
-    icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-    lucide.createIcons();
+    
+    // Animasi putar ikon
+    icon.style.transform = "rotate(360deg)";
+    icon.style.transition = "transform 0.5s ease";
+
+    body.classList.toggle('dark');
+    const isDark = body.classList.contains('dark');
+    
+    setTimeout(() => {
+        icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+        lucide.createIcons();
+        icon.style.transform = "rotate(0deg)";
+    }, 250);
+
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
-
 // Custom Cursor Logic
 const dot = document.getElementById("cursor-dot");
 const outline = document.getElementById("cursor-outline");
@@ -672,6 +724,7 @@ setTimeout(() => {
     document.getElementById('music-widget').classList.remove('translate-x-[120%]');
 }, 3000);
     </script>
+    
 </body>
 
 </html>
