@@ -4,44 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ME project |Software Engineer </title>
-    <!-- Baris untuk ganti icon tab (Favicon) -->
-    <link rel="icon" type="image/png" href="img/logo.jpeg">
+    <!-- Perbaikan Typo & Spasi -->
+    <title>IMAM | Software Engineer Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <meta name="description" content="Portfolio Personal Imam - Software Engineering Student & Leader.">
-    <meta name="author" content="Imam">
-    
-    <meta property="og:title" content="ME roject | softwere enginer">
-    <meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang calon Software Engineer.">
-    <meta property="og:image" content="img/profile.jpeg"> <meta property="og:type" content="website">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ra (Koswara)",
-      "url": "https://ra-project.vercel.app",
-      "jobTitle": "Software Engineering Student",
-      "alumniOf": "SMK Mihadunal Ula",
-      "knowsAbout": ["PHP", "CodeIgniter 3", "MySQL", "Web Development", "UI/UX Design"],
-      "sameAs": [
-        "https://instagram.com/akd_run.code"
-      ]
-    }
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Pastikan Tailwind tahu kita pakai class 'dark'
+        }
     </script>
-        <!-- AOS Library untuk animasi scroll -->
+    
+    <!-- Meta Tags yang lebih profesional -->
+    <meta name="description" content="Portfolio Software Engineering Imam - Fokus pada PHP, CodeIgniter, dan Web Development.">
+    <meta property="og:title" content="IMAM | Software Engineer Portfolio">
+    <meta property="og:description" content="Jejak perjalanan koding, organisasi, dan dedikasi seorang Software Engineer.">
+    <meta property="og:image" content="img/profile.jpeg"> 
+    
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #fcfdfe;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s ease; }
+        .card-shadow { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        /* Tambahkan kelancaran scroll */
+        html { scroll-behavior: smooth; }
 
        .card-shadow {
     position: relative;
